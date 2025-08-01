@@ -3,13 +3,17 @@
  <section class="container d-flex flex-column justify-content-center  align-items-center mb-5">
     <h1 class="mt-5">I film presenti in catalogo,loggati per vedere piu dettagli  </h1>
     <ul class="mt-5">
-        @foreach ( $films as $film)
+        @guest
+       
+        @foreach($films as $film)
             <li>{{ $film->title }}</li>
         @endforeach
+    @endguest
 
     </ul>
-
-  {{-- <x-cards :films="$films" /> --}}
+@auth
+  <x-cards :films="$films" />
+  @endauth
 
 </section>
 </x-main>

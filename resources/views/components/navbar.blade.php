@@ -12,18 +12,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('pages.homepage') }}">Home</a>
                 </li>
-            
+            @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('films.index') }}">Gestione Film</a>
                 </li>
+                @endauth
                {{--  parte visibile ai guest  --}}
                 @guest
 
                         <li class="nav-item">
-                            <a class="nav-link" {{-- href="{{ route('login') }}" --}}>Accedi</a>
+                            <a class="nav-link" href="{{ route('login') }}">Accedi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" {{-- href="{{ route('register') }}" --}}>Registrati</a>
+                            <a class="nav-link" href="{{ route('register') }}">Registrati</a>
                         </li>
                     @else
                        <li class="nav-item">

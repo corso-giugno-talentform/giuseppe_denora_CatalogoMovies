@@ -43,3 +43,13 @@
    sotto forma di lista non ordinata da utenti non loggati (da implementare la parte per utenti loggati)
    * implementazione della parte di backoffice GestioneFilm 
    con una tabella che mostra tutti i film , un bottone che rimanda ad un form di inserimento
+## Implementazione delle auth
+* installazione di fortify con i comandi 
+   composer require laravel/fortify
+   php artisan fortify:install
+   php artisan migrate
+
+* implementazione della doppia visualizzaione della home
+  da guest è visibile solouna lista dei film in catalogo
+  da loggato è possibile inserire i film 
+ 

@@ -11,7 +11,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email utente</label>
-                        <input type="email" name="email" class="form-control" id="email" required value="{{old('email')}} >
+                        <input type="email" name="email" class="form-control" id="email" required value="{{old('email')}}" >
                     </div>
 
                     <div class="mb-3">
