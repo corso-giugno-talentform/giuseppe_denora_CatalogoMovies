@@ -6,9 +6,15 @@ use App\Http\Controllers\{PageController, FilmController};
 Route::get('/', [PageController::class, 'homepage'])->name('pages.homepage');
 
 Route::get('/films', [FilmController::class, 'index'])->name('films.index');
+
+
 Route::get('/films/crea-film', [FilmController::class, 'create'])->name('films.create')->middleware('auth');
 
 Route::post('/films/salva-film', [FilmController::class, 'store'])->name('films.store')->middleware('auth');
+
+//metodo per rendee admin un normale user
+Route::get('/admin/activate/{user}', [PageController::class, 'activate'])->name('admin.activate');
+
 
 
 

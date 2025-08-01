@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light  bg-light sticky-top">
     <div class="container">
-        <a class="navbar-brand"  href="{{ route('pages.homepage') }}">
+        <a class="navbar-brand" href="{{ route('pages.homepage') }}">
             <i class="fas fa-film me-2 text-brown"></i>{{ env('APP_NAME') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -12,36 +12,39 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('pages.homepage') }}">Home</a>
                 </li>
-            @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('films.index') }}">Gestione Film</a>
-                </li>
+                @auth
+             {{--     prima avevo messo Auth::user()->is_admin  --}}
+                    @if (Auth::user()->checkIsAdmin())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('films.index') }}">Gestione Film</a>
+                        </li>
+                    @endif
                 @endauth
-               {{--  parte visibile ai guest  --}}
+                {{--  parte visibile ai guest  --}}
                 @guest
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Accedi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registrati</a>
-                        </li>
-                    @else
-                       <li class="nav-item">
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Accedi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Registrati</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
 
-                                <button class="nav-link" type="submit">Logout</button>
-                            </form>
+                            <button class="nav-link" type="submit">Logout</button>
+                        </form>
 
-                        </li>
-                    @endguest
+                    </li>
+                @endguest
             </ul>
 
-               @auth
-                    Ciao, {{ Auth::user()->name }}
-                @endauth
-            </div>
+            @auth
+                Ciao, {{ Auth::user()->name }}
+            @endauth
         </div>
+    </div>
     </div>
 </nav>

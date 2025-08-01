@@ -27,6 +27,14 @@
                             id="password_confirmation" required>
                     </div>
 
+                     {{--  Scelta se essere admin   --}}
+
+
+                   {{--  <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin" value="1">
+                        <label class="form-check-label" for="is_admin">Registrati come admin</label>
+                    </div>
+ --}}
                     <button type="submit" class="btn btn-dark">Registrati</button>
                     <a href="{{ route('login') }}" class="btn btn-outline-dark">Gia'
                         iscritto?</a>

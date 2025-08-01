@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use  App\Models\Film;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use  App\Models\User;
 class PageController extends Controller
 {
  
@@ -15,5 +15,14 @@ class PageController extends Controller
 
        }
 
+       //metodo per attivare unutente come admin
 
+        public function activate(User $user) //
+    {
+        $user->is_admin = true;
+        $user->save();
+
+        return redirect('/')->with('success', 'Utente promosso ad Admin!');
+    }
 }
+

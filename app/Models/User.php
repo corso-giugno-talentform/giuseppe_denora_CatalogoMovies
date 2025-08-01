@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -38,11 +39,29 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+ 
+
+    
+
+
+
+    ///metodo aggiunto per controllare se un utente è admin
+    //il SUPER ADMIN ha la email admin@example.com e puo abiltare gli altri come admin o no
+
+    public function checkIsAdmin(){
+        if($this->email=='admin@example.com'){
+            return true;
+        }else{
+            return $this->is_admin;
+        }
+
+
     }
 }

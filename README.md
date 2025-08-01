@@ -52,4 +52,26 @@
 * implementazione della doppia visualizzaione della home
   da guest è visibile solouna lista dei film in catalogo
   da loggato è possibile inserire i film 
+
+## Attivazione delle MAIL
+* con https://mailtrap.io/
+
+## Attivazione di un ruolo Admin 
+ 
+*il SUPER ADMIN ha la email admin@example.com con la quale  puo abiltare gli altri come admin 
+ 
+* all'iscrizione  l'iscritto e l'Admin ricevono una email
+* l'Admin ha la possibilità di rendere Admin un utente cliccando su un link ricevuto
+per email
+* in risposta nella home si vedrà un messaggio di successo 
+
+* metodo aggiunto per controllare se un utente è admin
+ ```php
+    public function checkIsAdmin(){
+        if($this->email=='admin@example.com'){
+            return true;
+        }else{
+            return $this->is_admin;
+        }
+        ```
  

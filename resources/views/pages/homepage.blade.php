@@ -3,6 +3,13 @@
  <section class="container d-flex flex-column justify-content-center  align-items-center mb-5">
     <h1 class="mt-5">I film presenti in catalogo,loggati per vedere piu dettagli  </h1>
     <ul class="mt-5">
+{{-- messaggio in caso di successo promosso utente come admin --}}
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
         @guest
        
         @foreach($films as $film)
