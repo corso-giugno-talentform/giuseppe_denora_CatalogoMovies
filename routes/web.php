@@ -5,6 +5,7 @@ use App\Http\Controllers\{PageController, FilmController};
 
 Route::get('/', [PageController::class, 'homepage'])->name('pages.homepage');
 
+//metteremo il filtraggio per genere
 Route::get('/films', [FilmController::class, 'index'])->name('films.index');
 
 

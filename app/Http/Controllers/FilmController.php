@@ -21,9 +21,7 @@ class FilmController extends Controller
     public function index()
 
     {
-        if (!Auth::check() || !Auth::user()->checkIsAdmin()) {
-            abort(403, 'Accesso negato. Solo gli amministratori possono accedere.');
-        }
+       //non metto il check admin perche index è visibile ad utenti loggati anche non admin 
         $films = Film::all();
         return view('films.index', compact('films'));
     }
