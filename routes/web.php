@@ -12,8 +12,22 @@ Route::get('/films/crea-film', [FilmController::class, 'create'])->name('films.c
 
 Route::post('/films/salva-film', [FilmController::class, 'store'])->name('films.store')->middleware('auth');
 
-//metodo per rendee admin un normale user
+//metodo per rendere admin un normale user
 Route::get('/admin/activate/{user}', [PageController::class, 'activate'])->name('admin.activate');
+
+//visualizzo il film (dalla backoffice cliccando su visualizza)
+Route::get('/films/{film}', [FilmController::class, 'show'])->name('films.show');
+
+//crud
+Route::get('/films/{film}/edit', [FilmController::class, 'edit'])
+  ->name('films.edit');
+
+Route::put('/films/{film}/update', [FilmController::class, 'update'])
+  ->name('films.update');
+
+Route::delete('/films/{film}/deltete',[FilmController::class, 'destroy'])
+  ->name('films.destroy'); 
+
 
 
 

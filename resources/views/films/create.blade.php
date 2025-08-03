@@ -5,16 +5,16 @@
             @csrf
             {{ $hidden ?? '' }}
 
-            {{-- Titolo libro --}}
+            {{-- Titolo film--}}
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Titolo libro" name="title"
+                <input type="text" class="form-control" placeholder="Titolo Film" name="title"
                     value="{{ old('title') }}">
                 @error('title')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
             </div>
 
-             {{-- descriz libro --}}
+             {{-- descriz film --}}
             <div class="mb-3">
                 <input type="text" class="form-control" placeholder="descrizione" name="description"
                     value="{{ old('description') }}">

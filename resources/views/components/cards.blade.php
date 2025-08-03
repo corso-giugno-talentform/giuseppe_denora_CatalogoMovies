@@ -6,9 +6,8 @@
                              class="card-img-top " style="height: 150px; object-fit: cover;"alt="...">
                          <div class="card-body">
                              <h5 class="card-title">{{ $film->title }}</h5>
-                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                 to
-                                 additional content. This content is a little bit longer.</p>
+                             <p class="card-text">
+                                {{$film->description}} </p>
                          </div>
                      </div>
                  </div>

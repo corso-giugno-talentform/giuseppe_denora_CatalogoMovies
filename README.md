@@ -73,5 +73,30 @@ per email
         }else{
             return $this->is_admin;
         }
-        ```
- 
+```
+
+## Implementazione Crud
+* Visualizza : dal tasto visualizza nella sezione dedicata all'Admin 
+               è possibile visualizzare i dati salienti riguardante un Film in catalogo
+
+* Update :  Da tasto Update si viene indirizzati in un "nuovo form" di update
+            che mantiene i dati relativi al Film in questione prendendoli dal db
+            con la possibiltà di cambiarli grazie al metodo  update() in FilmController
+
+* Delete  : Dal tasto delete viene triggerata una modale che si comporta come   un vero form col method delete, e permette la cancellazione del film grazie all'ancoraggio statico tra il data-bs-target del button e l'id della modale
+
+```php
+                               <!-- bel bottone di delete --> 
+                              <button data-bs-toggle="modal"
+                                            
+                               data-bs-target="#film-{{ $film->id }}">...
+                                     
+
+                              <!-- Modale -->
+                              <div class="modal fade" id="film-{{ $film->id }}" 
+
+```
+## fixed
+* risolto il problema di creazione nuovi film quando loggato come admin@example.com
+aggiungendo il metodo checkIsAdmin()  anche al metodo store nel filmcontroller 
+* descizione film mancante nelle card
